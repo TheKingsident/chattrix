@@ -3,7 +3,7 @@
 import requests
 import json
 
-API_KEY = "AIzaSyD76HWjGjQ5F6j2tkExCg5Qpz9mo60JaUA"
+API_KEY = input("Enter your YouTube API key: ")
 VIDEO_ID = input("Enter the video ID: ")
 
 def fetch_comments(video_id, api_key):
