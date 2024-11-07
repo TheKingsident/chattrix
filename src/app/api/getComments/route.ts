@@ -23,7 +23,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     }
 
     try {
-        const response: Response = await fetch(`http://localhost:5000/getComments?videoId=${videoId}&keyword=${keyword}`);
+        const response: Response = await fetch(`https://chattrix-backend.onrender.com/getComments?videoId=${videoId}&keyword=${keyword}`);
 
         if (!response.ok) {
             console.error('Error fetching data:', response.status, await response.text());

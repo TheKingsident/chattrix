@@ -17,7 +17,7 @@ export const fetchComments = async (
 ) => {
     setLoading(true);
     try {
-        const res = await fetch(`/api/getComments?videoId=${videoId}&keyword=${keyword}`);
+        const res = await fetch(`https://chattrix-backend.onrender.com/getComments?videoId=${videoId}&keyword=${keyword}`);
         if (!res.ok) {
             throw new Error("Failed to fetch comments.");
         }
