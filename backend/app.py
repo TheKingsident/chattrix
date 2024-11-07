@@ -1,10 +1,12 @@
 import os
 from flask import Flask, jsonify, request
+from flask_cors import CORS as cors
 from scripts.fetch_comments import fetch_comments
 from dotenv import load_dotenv
 from scripts.library_loader import load_library
 
 app = Flask(__name__)
+cors(app)
 
 @app.route("/getComments", methods=["GET"])
 def getComments():
