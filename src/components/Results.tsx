@@ -31,16 +31,16 @@ const Results: FC<ResultsProps> = ({ comments, onClose }) => {
 
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-90 flex flex-col items-center justify-center p-5">
-        <div className="bg-white rounded-lg p-5 w-full max-w-3xl overflow-auto">
+        <div className="bg-slate-700 rounded-lg p-5 w-full max-w-3xl overflow-auto">
             <button
-                className="mb-4 bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600"
+                className="mb-4 bg-red-500 text-gray-300 py-1 px-3 rounded hover:bg-red-600"
                 onClick={onClose}
             >
                 Close
             </button>
             <ul className="space-y-3">
                 {currentComments.map((comment, index) => (
-                    <li key={index} className="p-2 bg-gray-100 rounded shadow">
+                    <li key={index} className="p-2 bg-slate-600 rounded shadow">
                         {comment}
                     </li>
                 ))}
