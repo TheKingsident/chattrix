@@ -26,53 +26,54 @@ const Comments = () => {
     };
 
     return (
-        <div>
-            <center>
-            
-            <h2>YouTube Comments</h2>
-            <div className="input-field w-full max-w-md px-4">
-                <Field className="text-left">
-                    <Label className="text-sm/6 font-medium text-white">Youtube Video Link</Label>
-                    <Description className="text-sm/6 text-white/50">Copy the link from your browser and paste it in the field below</Description>
-                    <Input
-                    className={clsx(
-                        'mt-3 block w-full rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white',
-                        'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
-                    )}
-                    value={videoUrl}
-                    onChange={(e) => setVideoUrl(e.target.value)}
-                    />
-                </Field>
-                <Field className='text-left mt-3'>
-                    <Label className="text-sm/6 font-medium text-white">Keyword</Label>
-                    <Description className="text-sm/6 text-white/50">What word are you searching for?</Description>
-                    <Input
-                    className={clsx(
-                        'mt-3 block w-full rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-white',
-                        'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
-                    )}
-                    value={keyword}
-                    onChange={(e) => setKeyword(e.target.value)}
-                    />
-                </Field>
+        <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center justify-center">
+            <div className="w-full max-w-2xl px-4">
+                <div className='flex flex-col space-y-4'>
+                    <Field className="text-left w-full">
+                        <div className='bg-slate-800 rounded-xl p-5'>
+                            <Input
+                                className={clsx(
+                                    'block w-full rounded-lg border-none bg-black py-2 px-3 text-white text-sm',
+                                    'focus:outline-none focus:ring-2 focus:ring-white'
+                                )}
+                                value={videoUrl}
+                                onChange={(e) => setVideoUrl(e.target.value)}
+                                pattern='https://www.youtube.com/watch\?v=.*'
+                                placeholder='Enter a YouTube video URL'
+                            />
+
+                            <Input
+                                className={clsx(
+                                    'mt-3 block w-full rounded-lg border-none bg-black py-2 px-3 text-white text-sm',
+                                    'focus:outline-none focus:ring-2 focus:ring-white'
+                                )}
+                                value={keyword}
+                                onChange={(e) => setKeyword(e.target.value)}
+                                placeholder='Enter a keyword to search for in comments'
+                            />
+                        </div>
+                    </Field>
+                </div>
             </div>
 
-
-            <Button className="inline-flex items-center gap-2 rounded-md mt-5 bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white"
-                onClick={handleFetchComments} disabled={loading || (!keyword || !videoUrl)}>
-                {loading ? "Fetching Comments..." : "Fetch Comments"}
+            <Button
+                onClick={handleFetchComments}
+                className="mt-5 bg-slate-500 text-white py-2 px-4 rounded-full hover:bg-slate-600"
+            >
+                {loading ? 'Loading...' : 'Fetch Comments'}
             </Button>
-            </center>
-            {comments.length > 0 ? (
-                <ul>
+
+            {comments.length === 0 ? (
+                <p className="text-white mt-5">No comments found.</p>
+            ) : (
+                <ul className="text-white mt-5">
                     {comments.map((comment, index) => (
-                        <li key={index}>{comment}</li>
+                        <li key={index} className="mb-2">{comment}</li>
                     ))}
                 </ul>
-            ) : (
-                !loading && <p>No comments found.</p>
             )}
         </div>
+
     );
 };
 
