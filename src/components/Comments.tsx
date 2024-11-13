@@ -17,12 +17,12 @@ const Comments = () => {
     const [loading, setLoading] = useState(false);
     const [showResults, setShowResuls] = useState(false);
 
-    const handleFetchComments = () => {
+    async function handleFetchComments() {
         const videoId = extractvideoUrl(videoUrl);
 
         if (videoId && keyword) {
             setLoading(true);
-            fetchComments(videoId, keyword, setLoading, setComments);
+            await fetchComments(videoId, keyword, setLoading, setComments);
             setShowResuls(true);
         } else {
             alert("Please enter both video url and keyword.");
@@ -71,15 +71,6 @@ const Comments = () => {
                 {loading ? 'Loading...' : 'Fetch Comments'}
             </Button>
 
-            {comments.length === 0 ? (
-                <p className="text-white mt-5">No comments found.</p>
-            ) : (
-                <ul className="text-white mt-5">
-                    {comments.map((comment, index) => (
-                        <li key={index} className="mb-2">{comment}</li>
-                    ))}
-                </ul>
-            )}
             {showResults && <Results comments={comments} onClose={handleCloseResults} />}
         </div>
 
