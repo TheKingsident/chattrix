@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { fetchComments, Comment } from '../utils/fetchComments';
 import { Description, Field, Input, Label, Button } from '@headlessui/react'
 import clsx from 'clsx';
+import Results from '@/components/Results';
 
 const extractvideoUrl = (url: string) => {
     const urlObj = new URL(url);
@@ -14,16 +15,23 @@ const Comments = () => {
     const [videoUrl, setVideoUrl] = useState("");
     const [keyword, setKeyword] = useState("");
     const [loading, setLoading] = useState(false);
+    const [showResults, setShowResuls] = useState(false);
 
     const handleFetchComments = () => {
         const videoId = extractvideoUrl(videoUrl);
 
         if (videoId && keyword) {
+            setLoading(true);
             fetchComments(videoId, keyword, setLoading, setComments);
+            setShowResuls(true);
         } else {
             alert("Please enter both video url and keyword.");
         }
     };
+
+    const handleCloseResults = () => {
+        setShowResuls(false);
+    }
 
     return (
         <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center justify-center">
@@ -72,6 +80,7 @@ const Comments = () => {
                     ))}
                 </ul>
             )}
+            {showResults && <Results comments={comments} onClose={handleCloseResults} />}
         </div>
 
     );
