@@ -39,11 +39,16 @@ const Results: FC<ResultsProps> = ({ comments, onClose }) => {
                 Close
             </button>
             <ul className="space-y-3">
-                {currentComments.map((comment, index) => (
+            {comments.length === 0 ? (
+                
+                <li className="p-10 text-center text-gray-300">No comments with that keyword found.</li>
+            ) : (
+                currentComments.map((comment, index) => (
                     <li key={index} className="p-2 bg-slate-600 rounded shadow">
                         {comment}
                     </li>
-                ))}
+                ))
+            )}
             </ul>
             <div className="flex justify-between mt-4">
                 <button
@@ -58,7 +63,7 @@ const Results: FC<ResultsProps> = ({ comments, onClose }) => {
                 </p>
                 <button
                     onClick={handleNextPage}
-                    disabled={currentPage === totalPages}
+                    disabled={currentPage === totalPages || comments.length === 0}
                     className="bg-blue-500 text-white py-1 px-3 rounded disabled:bg-gray-300"
                 >
                     Next
