@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const formatCommentText = (text: string) => {
     const tempElement = document.createElement('div');

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Comment } from '@/utils/fetchComments'
 import formatCommentText from '@/utils/formatComment';
+import Image from 'next/image';
 
 interface CommentCardProps {
     comment: Comment;
@@ -15,7 +16,7 @@ const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
     return (
         <div className="flex flex-col bg-gray-300 p-4 rounded-xl shadow-lg space-y-3">
             <div className="flex items-center space-x-4">
-                <img className="w-12 h-12 rounded-full object-cover"
+                <Image className="w-12 h-12 rounded-full object-cover"
                     src={snippet.authorProfileImageUrl}
                     alt={`${snippet.authorDisplayName}'s pic`} 
                     onError={(e) => {

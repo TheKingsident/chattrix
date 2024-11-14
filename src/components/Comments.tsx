@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { fetchComments, Comment } from '../utils/fetchComments';
-import { Description, Field, Input, Label, Button } from '@headlessui/react'
+import { Field, Input, Button } from '@headlessui/react'
 import clsx from 'clsx';
 import Results from '@/components/Results';
 

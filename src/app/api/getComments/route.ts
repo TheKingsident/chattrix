@@ -9,10 +9,6 @@ interface ErrorResponse {
     message: string;
 }
 
-interface Comment {
-    // Define the structure of a comment based on your API response
-}
-
 export async function GET(request: Request): Promise<NextResponse> {
     const { searchParams }: URL = new URL(request.url);
     const videoId: RequestParams['videoId'] = searchParams.get('videoId');
