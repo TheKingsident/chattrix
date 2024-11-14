@@ -6,8 +6,8 @@ export interface Comment {
                 authorProfileImageUrl: string;
                 publishedAt: string;
                 textDisplay: string;
+                likeCount?: number;
             };
-            likeCount?: number;
         };
         totalReplyCount?: number;
     };
