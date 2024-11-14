@@ -47,7 +47,7 @@ const Comments = () => {
                                 value={videoUrl}
                                 onChange={(e) => setVideoUrl(e.target.value)}
                                 pattern='https://www.youtube.com/watch\?v=.*'
-                                placeholder='Enter a YouTube video URL'
+                                placeholder='Enter a YouTube video URL in the Form https://www.youtube.com/watch\?v=.*'
                             />
 
                             <Input
