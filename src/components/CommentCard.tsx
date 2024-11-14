@@ -1,5 +1,6 @@
 import React from 'react';
 import { Comment } from '@/utils/fetchComments'
+import formatCommentText from '@/utils/formatComment';
 
 interface CommentCardProps {
     comment: Comment;
@@ -25,7 +26,7 @@ const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
                     <p className="text-sm text-gray-600">Posted on {new Date(snippet.publishedAt).toLocaleDateString()}</p>
                 </div>
             </div>
-            <p className="text-gray-800">{snippet.textDisplay}</p>
+            <p className="text-gray-800">{formatCommentText(snippet.textDisplay)}</p>
             <div className="flex space-x-4">
                 <button className="flex items-center space-x-2 text-white bg-black px-3 py-1 rounded-lg">
                     <span>👍</span>
