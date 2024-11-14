@@ -66,7 +66,7 @@ const Comments = () => {
 
             <Button
                 onClick={handleFetchComments}
-                className="mt-5 bg-slate-500 text-white py-2 px-4 rounded-full hover:bg-slate-600"
+                className="mt-5 bg-slate-500 text-white text-sm py-2 px-4 rounded-full hover:bg-slate-600"
             >
                 {loading ? 'Loading...' : 'Fetch Comments'}
             </Button>
