@@ -1,9 +1,11 @@
 "use client";
+import { Comment } from '@/utils/fetchComments';
 import React, { FC } from 'react'
 import { useState } from 'react';
+import CommentCard from './CommentCard';
 
 interface ResultsProps {
-    comments: string[];
+    comments: Comment[];
     onClose: () => void;
 }
 
@@ -44,8 +46,8 @@ const Results: FC<ResultsProps> = ({ comments, onClose }) => {
                 <li className="p-10 text-center text-gray-300">No comments with that keyword found.</li>
             ) : (
                 currentComments.map((comment, index) => (
-                    <li key={index} className="p-2 bg-slate-600 rounded shadow">
-                        {comment}
+                    <li key={index}>
+                        <CommentCard comment={comment} />
                     </li>
                 ))
             )}

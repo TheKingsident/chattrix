@@ -11,7 +11,7 @@ const extractvideoUrl = (url: string) => {
 };
 
 const Comments = () => {
-    const [comments, setComments] = useState<string[]>([]);
+    const [comments, setComments] = useState<Comment[]>([]);
     const [videoUrl, setVideoUrl] = useState("");
     const [keyword, setKeyword] = useState("");
     const [loading, setLoading] = useState(false);

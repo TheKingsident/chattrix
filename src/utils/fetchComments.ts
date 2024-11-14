@@ -1,11 +1,15 @@
-// utils/fetchComments.ts
 export interface Comment {
     snippet?: {
         topLevelComment?: {
             snippet?: {
+                authorDisplayName: string;
+                authorProfileImageUrl: string;
+                publishedAt: string;
                 textDisplay: string;
             };
+            likeCount?: number;
         };
+        totalReplyCount?: number;
     };
 }
 
@@ -13,7 +17,7 @@ export const fetchComments = async (
     videoId: string,
     keyword: string,
     setLoading: (loading: boolean) => void,
-    setComments: (comments: string[]) => void
+    setComments: (comments: Comment[]) => void
 ) => {
     setLoading(true);
     try {
@@ -22,10 +26,8 @@ export const fetchComments = async (
             throw new Error("Failed to fetch comments.");
         }
         const data: Comment[] = await res.json();
-        const commentTexts = data.map((comment) =>
-            comment.snippet?.topLevelComment?.snippet?.textDisplay || 'No comment text'
-        );
-        setComments(commentTexts);
+        
+        setComments(data);
     } catch (error) {
         console.error("Error fetching comments:", error);
         alert("There was an error fetching comments. Please try again later.");
