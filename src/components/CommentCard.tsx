@@ -14,7 +14,7 @@ const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
 
 
     return (
-        <div className="flex flex-col bg-gray-300 p-4 rounded-xl shadow-lg space-y-3">
+        <div className="flex flex-col bg-gray-300 p-4 rounded shadow-lg space-y-3">
             <div className="flex items-center space-x-4">
                 <Image className="w-12 h-12 rounded-full object-cover"
                     src={snippet.authorProfileImageUrl}
@@ -31,11 +31,11 @@ const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
             </div>
             <p className="text-gray-800 text-sm">{formatCommentText(snippet.textDisplay)}</p>
             <div className="flex space-x-4">
-                <div className="flex items-center space-x-2 text-white bg-gray-800 text-sm px-3 py-1 rounded-sm">
+                <div className="flex items-center space-x-2 text-white bg-gray-800 text-xs px-3 py-1 rounded-sm">
                     <span>👍</span>
                     <span>{snippet.likeCount} Likes</span>
                 </div>
-                <div className="flex items-center space-x-2 text-white bg-gray-800 text-sm px-3 py-1 rounded-sm">
+                <div className="flex items-center space-x-2 text-white bg-gray-800 text-xs px-3 py-1 rounded-sm">
                     <span>↩️</span>
                     <span>{comment.snippet?.totalReplyCount} Replies</span>
                 </div>
