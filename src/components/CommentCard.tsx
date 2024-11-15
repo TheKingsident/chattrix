@@ -19,6 +19,8 @@ const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
                 <Image className="w-12 h-12 rounded-full object-cover"
                     src={snippet.authorProfileImageUrl}
                     alt={`${snippet.authorDisplayName}'s pic`} 
+                    width={48}
+                    height={48}
                     onError={(e) => {
                         e.currentTarget.src = '/profile.svg';
                     }}/>
