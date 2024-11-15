@@ -35,11 +35,23 @@ const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
             <div className="flex space-x-4">
                 <div className="flex items-center space-x-2 text-white bg-gray-800 text-xs px-3 py-1 rounded-sm">
                     <BiLike />
-                    <span>{snippet.likeCount} Likes</span>
+                    <span>
+                        {snippet.likeCount != null ? (
+                            snippet.likeCount === 1 ? `${snippet.likeCount} Like` : `${snippet.likeCount} Likes`
+                        ) : (
+                            '0 Likes'
+                        )}
+                    </span>
                 </div>
                 <div className="flex items-center space-x-2 text-white bg-gray-800 text-xs px-3 py-1 rounded-sm">
                     <BsReply />
-                    <span>{comment.snippet?.totalReplyCount} Replies</span>
+                    <span>
+                        {comment.snippet?.totalReplyCount != null ? (
+                            comment.snippet?.totalReplyCount === 1 ? `${comment.snippet?.totalReplyCount} Reply` : `${comment.snippet?.totalReplyCount} Replies`
+                        ) : (
+                            '0 Replies'
+                        )}
+                    </span>
                 </div>
             </div>
         </div>
