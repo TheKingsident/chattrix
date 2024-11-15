@@ -6,8 +6,20 @@ import clsx from 'clsx';
 import Results from '@/components/Results';
 
 const extractvideoUrl = (url: string) => {
-    const urlObj = new URL(url);
-    return urlObj.searchParams.get("v");
+    try{
+        const urlObj = new URL(url);
+
+        if (urlObj.hostname === "www.youtube.com" || urlObj.hostname === "youtube.com") {
+            return urlObj.searchParams.get("v");
+        } else if (urlObj.hostname === "youtu.be") {
+            return urlObj.pathname.substring(1);
+        } else {
+            return null;
+        }
+    } catch (error) {
+        console.error("Error parsing video URL:", error);
+        return null;
+    }    
 };
 
 const Comments = () => {
