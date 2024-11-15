@@ -1,4 +1,6 @@
 import React from 'react';
+import { BiLike } from "react-icons/bi";
+import { BsReply } from "react-icons/bs";
 import { Comment } from '@/utils/fetchComments'
 import formatCommentText from '@/utils/formatComment';
 import Image from 'next/image';
@@ -32,11 +34,11 @@ const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
             <p className="text-gray-800 text-sm">{formatCommentText(snippet.textDisplay)}</p>
             <div className="flex space-x-4">
                 <div className="flex items-center space-x-2 text-white bg-gray-800 text-xs px-3 py-1 rounded-sm">
-                    <span>👍</span>
+                    <BiLike />
                     <span>{snippet.likeCount} Likes</span>
                 </div>
                 <div className="flex items-center space-x-2 text-white bg-gray-800 text-xs px-3 py-1 rounded-sm">
-                    <span>↩️</span>
+                    <BsReply />
                     <span>{comment.snippet?.totalReplyCount} Replies</span>
                 </div>
             </div>
