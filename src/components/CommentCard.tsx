@@ -25,20 +25,20 @@ const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
                         e.currentTarget.src = '/profile.svg';
                     }}/>
                 <div>
-                    <h3 className="text-lg font-semibold">{snippet.authorDisplayName}</h3>
-                    <p className="text-sm text-gray-600">Posted on {new Date(snippet.publishedAt).toLocaleDateString()}</p>
+                    <h3 className="text-sm font-semibold">{snippet.authorDisplayName}</h3>
+                    <p className="text-xs text-gray-600">Posted on {new Date(snippet.publishedAt).toLocaleDateString()}</p>
                 </div>
             </div>
-            <p className="text-gray-800">{formatCommentText(snippet.textDisplay)}</p>
+            <p className="text-gray-800 text-sm">{formatCommentText(snippet.textDisplay)}</p>
             <div className="flex space-x-4">
-                <button className="flex items-center space-x-2 text-white bg-black px-3 py-1 rounded-lg">
+                <div className="flex items-center space-x-2 text-white bg-gray-800 text-sm px-3 py-1 rounded-sm">
                     <span>👍</span>
                     <span>{snippet.likeCount} Likes</span>
-                </button>
-                <button className="flex items-center space-x-2 text-white bg-black px-3 py-1 rounded-lg">
+                </div>
+                <div className="flex items-center space-x-2 text-white bg-gray-800 text-sm px-3 py-1 rounded-sm">
                     <span>↩️</span>
                     <span>{comment.snippet?.totalReplyCount} Replies</span>
-                </button>
+                </div>
             </div>
         </div>
     );
