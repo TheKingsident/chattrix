@@ -35,7 +35,7 @@ const Results: FC<ResultsProps> = ({ comments, onClose }) => {
     <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-90 flex flex-col items-center justify-center p-5">
         <div className="bg-slate-700 rounded p-5 w-full max-w-3xl overflow-auto">
             <button
-                className="mb-4 bg-red-500 text-gray-300 py-1 px-3 rounded hover:bg-red-600"
+                className="mb-4 bg-red-500 text-gray-300 text-sm py-1 px-3 rounded hover:bg-red-600"
                 onClick={onClose}
             >
                 Close
@@ -56,7 +56,7 @@ const Results: FC<ResultsProps> = ({ comments, onClose }) => {
                 <button
                     onClick={handlePrevPage}
                     disabled={currentPage === 1}
-                    className="bg-blue-500 text-white py-1 px-3 rounded disabled:bg-gray-300"
+                    className="bg-blue-500 text-white py-1 text-sm px-3 rounded disabled:bg-gray-300"
                 >
                     Previous
                 </button>
@@ -66,7 +66,7 @@ const Results: FC<ResultsProps> = ({ comments, onClose }) => {
                 <button
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages || comments.length === 0}
-                    className="bg-blue-500 text-white py-1 px-3 rounded disabled:bg-gray-300"
+                    className="bg-blue-500 text-white text-sm py-1 px-3 rounded disabled:bg-gray-300"
                 >
                     Next
                 </button>
