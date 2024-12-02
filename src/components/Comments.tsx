@@ -1,6 +1,8 @@
 "use client";
 import { useState } from 'react';
 import { fetchComments, Comment } from '../utils/fetchComments';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Field, Input, Button } from '@headlessui/react'
 import clsx from 'clsx';
 import Results from '@/components/Results';
@@ -27,26 +29,41 @@ const Comments = () => {
     const [videoUrl, setVideoUrl] = useState("");
     const [keyword, setKeyword] = useState("");
     const [loading, setLoading] = useState(false);
-    const [showResults, setShowResuls] = useState(false);
+    const [showResults, setShowResults] = useState(false);
 
     async function handleFetchComments() {
         const videoId = extractvideoUrl(videoUrl);
 
-        if (videoId && keyword) {
+        if (!videoId) {
+            toast.error("Invalid video URL. Please enter a valid YouTube video URL.");
+            return;
+          }
+      
+          if (!keyword) {
+            toast.error("Please enter a keyword to search for.");
+            return;
+          }
+      
+          try {
             setLoading(true);
             await fetchComments(videoId, keyword, setLoading, setComments);
-            setShowResuls(true);
-        } else {
-            alert("Please enter both video url and keyword.");
-        }
+            setShowResults(true);
+            toast.success("Comments fetched successfully!");
+          } catch (err) {
+            toast.error("Failed to fetch comments. Please try again later.");
+            console.error(err);
+          } finally {
+            setLoading(false);
+          }
     };
 
     const handleCloseResults = () => {
-        setShowResuls(false);
+        setShowResults(false);
     }
 
     return (
         <div className="w-full bg-gray-900 flex flex-col items-center justify-center">
+            <ToastContainer position="top-right" autoClose={3000} />
             <div className="w-full max-w-2xl px-4">
                 <div className='flex flex-col space-y-4'>
                     <Field className="text-left w-full">
