@@ -46,7 +46,7 @@ const Comments = () => {
     }
 
     return (
-        <div className="w-full min-h-screen bg-gray-900 flex flex-col items-center justify-center">
+        <div className="w-full bg-gray-900 flex flex-col items-center justify-center">
             <div className="w-full max-w-2xl px-4">
                 <div className='flex flex-col space-y-4'>
                     <Field className="text-left w-full">

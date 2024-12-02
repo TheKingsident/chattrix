@@ -1,29 +1,27 @@
-import Link from 'next/link';
+import { FaGithub } from 'react-icons/fa';
 
 const Header = () => {
     return (
-        <header className="bg-gray-800 text-white py-4 shadow-lg">
-            <div className="container mx-auto flex justify-between items-center px-4">
-                <h1 className="text-2xl font-semibold">Chattrix</h1>
-                <nav>
-                    <ul className="flex space-x-4">
-                        <li>
-                            <Link href="/" className="hover:text-gray-400">
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/about" className="hover:text-gray-400">
-                                About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/contact" className="hover:text-gray-400">
-                                Contact
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
+        <header className="bg-gray-800 text-white pb-1 shadow-lg">
+            <div className="bg-gray-900 py-24 sm:py-32">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <div className="text-center">
+                        <p className="mt-2 text-7xl font-semibold tracking-tight text-white sm:text-6xl">
+                            Chattrix
+                        </p>
+                        <p className="mt-4 text-xl sm:text-2xl text-gray-400">
+                            A YouTube Comment Search application 
+                        </p>
+                        <a
+                            href="https://github.com/TheKingsident/chattrix"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block mt-8 text-gray-400 hover:text-gray-300"
+                        >
+                            <FaGithub size={40} />
+                        </a>
+                    </div>
+                </div>
             </div>
         </header>
     );
