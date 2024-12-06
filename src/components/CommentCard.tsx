@@ -18,15 +18,25 @@ const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
     return (
         <div className="flex flex-col bg-gray-300 p-4 rounded shadow-lg space-y-3">
             <div className="flex items-center space-x-4">
-                <Image className="w-12 h-12 rounded-full object-cover"
-                    src={snippet.authorProfileImageUrl}
-                    alt={`${snippet.authorDisplayName}'s pic`} 
-                    width={48}
-                    height={48}
-                    unoptimized={true}
-                    onError={(e) => {
-                        e.currentTarget.src = '/profile.svg';
-                    }}/>
+                {snippet.authorProfileImageUrl ? (
+                    <Image
+                        className="w-12 h-12 rounded-full object-cover"
+                        src={snippet.authorProfileImageUrl}
+                        alt={`${snippet.authorDisplayName}'s pic`}
+                        width={48}
+                        height={48}
+                        onError={(e) => {
+                            e.currentTarget.src = '/profile.svg';
+                        }}
+                    />
+                ) : (
+                    <img
+                        className="w-12 h-12 rounded-full object-cover"
+                        src="/profile.svg"
+                        alt={`${snippet.authorDisplayName}'s pic`}
+                    />	
+                )}
+
                 <div>
                     <h3 className="text-sm font-semibold">{snippet.authorDisplayName}</h3>
                     <p className="text-xs text-gray-600">Posted on {new Date(snippet.publishedAt).toLocaleDateString()}</p>
