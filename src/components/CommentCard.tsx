@@ -23,6 +23,7 @@ const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
                     alt={`${snippet.authorDisplayName}'s pic`} 
                     width={48}
                     height={48}
+                    unoptimized={true}
                     onError={(e) => {
                         e.currentTarget.src = '/profile.svg';
                     }}/>
