@@ -12,13 +12,8 @@ interface CommentCardProps {
 
 const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
     const snippet = comment.snippet?.topLevelComment?.snippet;
-    const [imgSrc, setImgSrc] = useState(snippet?.authorProfileImageUrl || '/profile.svg');
     if (!snippet) return null;
-
-    const handleError = () => {
-        setImgSrc('/profile.svg');
-    }
-
+    const imgSrc= snippet?.authorProfileImageUrl
 
     return (
         <div className="flex flex-col bg-gray-300 p-4 rounded shadow-lg space-y-3">
@@ -29,7 +24,7 @@ const CommentCard: React.FC<CommentCardProps> = ({comment }) => {
                     alt={`${snippet.authorDisplayName}'s pic`}
                     width={48}
                     height={48}
-                    onError={handleError} fallbackSrc={'/profile.svg'}                />
+                    fallbackSrc={'/profile.svg'}                />
                 <div>
                     <h3 className="text-sm font-semibold">{snippet.authorDisplayName}</h3>
                     <p className="text-xs text-gray-600">Posted on {new Date(snippet.publishedAt).toLocaleDateString()}</p>
