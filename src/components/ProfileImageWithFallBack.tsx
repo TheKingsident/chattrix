@@ -7,7 +7,7 @@ interface ProfileImageWithFallBackProps extends ImageProps {
     alt: string;
     width?: number;
     height?: number;
-    [key: string]: any;
+    [key: string]: unknown;
 }
 
 const ProfileImageWithFallBack = (props: ProfileImageWithFallBackProps) => {

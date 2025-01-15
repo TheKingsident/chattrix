@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BiLike } from "react-icons/bi";
 import { BsReply } from "react-icons/bs";
 import { Comment } from '@/utils/fetchComments'
 import formatCommentText from '@/utils/formatComment';
-import Image from 'next/image';
 import ProfileImageWithFallBack from './ProfileImageWithFallBack';
 
 interface CommentCardProps {
